@@ -38,4 +38,4 @@ creds.json
 *client_secrets*.json
 
 # VS Code
-settings.json
+.vscode/
