@@ -1,0 +1,41 @@
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Temp DBs
+*.db
+*.db.backup
+*.csv
+
+# Google Drive settings
+settings.yaml
+creds.json
+*client_secrets*.json
+
+# VS Code
+settings.json
