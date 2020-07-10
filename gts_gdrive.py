@@ -125,9 +125,13 @@ def collect(gdrive, github_config):
     github_traffic_stats.collect(user=github_config['username'], repo=github_config['repo'], token=github_config['access_token'], org=None)
     __upload_db(gdrive=gdrive, github_config=github_config)
 
+def exportcsv(gdrive, github_config):
+    __download_db(gdrive=gdrive, github_config=github_config)
+    github_traffic_stats.export_to_csv(repo=github_config['repo'])
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('action', choices=['config', 'config-repo', 'collect', 'view'])
+    parser.add_argument('action', choices=['config', 'config-repo', 'collect', 'view', 'exportcsv'])
     args = parser.parse_args()
 
     if args.action == 'config':
@@ -144,9 +148,11 @@ def main():
     if args.action == 'config-repo':
         config_repo_walkthorugh()
     elif args.action == 'view':
-         view(gdrive=gdrive, github_config=github_config)
+        view(gdrive=gdrive, github_config=github_config)
     elif args.action == 'collect':
-         collect(gdrive=gdrive, github_config=github_config)
+        collect(gdrive=gdrive, github_config=github_config)
+    elif args.action == 'exportcsv':
+        exportcsv(gdrive=gdrive, github_config=github_config)
 
 if __name__ == "__main__":
     main()
